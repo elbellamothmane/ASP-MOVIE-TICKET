@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eTickets.Models
 {
-    public class Order
+    public class Orders
     {
         [Key]
         public int Id { get; set; }

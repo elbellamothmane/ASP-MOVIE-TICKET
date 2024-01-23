@@ -15,7 +15,7 @@ namespace eTickets.Data.Services
             _context = context;
         }
 
-        public async Task<List<Order>> GetOrdersByUserIdAndRoleAsync(string userId, string userRole)
+        public async Task<List<Orders>> GetOrdersByUserIdAndRoleAsync(string userId, string userRole)
         {
             var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Movie).Include(n => n.User).ToListAsync();
 
@@ -29,7 +29,7 @@ namespace eTickets.Data.Services
 
         public async Task StoreOrderAsync(List<ShoppingCartItem> items, string userId, string userEmailAddress)
         {
-            var order = new Order()
+            var order = new Orders()
             {
                 UserId = userId,
                 Email = userEmailAddress
